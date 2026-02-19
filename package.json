@@ -1,0 +1,60 @@
+{
+  "name": "ai-changelog",
+  "version": "1.0.0",
+  "description": "GitHub Action that generates AI-powered changelogs from merged PRs when a release is created",
+  "type": "module",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "lint": "eslint . && prettier --check .",
+    "format": "prettier --write .",
+    "prepare": "husky"
+  },
+  "keywords": [
+    "github-action",
+    "ai",
+    "changelog",
+    "release-notes",
+    "openai",
+    "anthropic",
+    "claude",
+    "gpt",
+    "automation",
+    "developer-tools",
+    "conventional-commits"
+  ],
+  "author": "Ofer Shapira",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ofershap/ai-changelog.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ofershap/ai-changelog/issues"
+  },
+  "homepage": "https://github.com/ofershap/ai-changelog#readme",
+  "dependencies": {
+    "@actions/core": "^1.11.0",
+    "@actions/github": "^6.0.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.0.0",
+    "eslint-config-prettier": "^10.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^15.0.0",
+    "prettier": "^3.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.0.0",
+    "vitest": "^3.2.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js}": "eslint --fix",
+    "*.{json,md,yml,yaml}": "prettier --write"
+  }
+}

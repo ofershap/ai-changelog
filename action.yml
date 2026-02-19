@@ -1,0 +1,36 @@
+name: "AI Changelog"
+description: "Generate AI-powered changelogs from merged PRs when a release is created"
+author: "Ofer Shapira"
+
+inputs:
+  provider:
+    description: "AI provider: openai or anthropic"
+    required: false
+    default: "openai"
+  model:
+    description: "Model to use"
+    required: false
+    default: "gpt-4o-mini"
+  api-key:
+    description: "API key for the AI provider"
+    required: true
+  categories:
+    description: "Comma-separated changelog categories"
+    required: false
+    default: "Features,Bug Fixes,Breaking Changes,Other"
+  update-release:
+    description: "Update the GitHub Release body with the changelog"
+    required: false
+    default: "true"
+
+outputs:
+  changelog:
+    description: "The generated changelog text"
+
+runs:
+  using: "node20"
+  main: "dist/index.js"
+
+branding:
+  icon: "file-text"
+  color: "blue"
