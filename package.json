@@ -1,5 +1,5 @@
 {
-  "name": "ai-changelog",
+  "name": "ai-changelog-action",
   "version": "1.0.0",
   "description": "GitHub Action that generates AI-powered changelogs from merged PRs when a release is created",
   "type": "module",

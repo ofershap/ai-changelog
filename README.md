@@ -4,7 +4,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-strict-blue.svg)](https://www.typescriptlang.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-GitHub Action that generates beautiful, AI-powered changelogs from your merged pull requests. Triggered on release creation, it reads all PRs since the last release and produces a structured changelog.
+GitHub Action that generates changelogs from your merged pull requests using AI. Runs when a release is published, reads all PRs since the last release, and produces a structured changelog.
 
 ```yaml
 on:
@@ -25,9 +25,15 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
-> Uses OpenAI or Anthropic to transform raw PR titles and metadata into user-friendly release notes. No SDK dependencies—just native fetch.
+> Supports OpenAI and Anthropic. Transforms raw PR titles and metadata into readable release notes. No SDK dependencies, just native fetch.
 
-![Demo](assets/demo.gif)
+![GitHub Action for AI-generated changelogs from pull requests](assets/demo.gif)
+
+<sub>Demo built with <a href="https://github.com/ofershap/remotion-readme-kit">remotion-readme-kit</a></sub>
+
+## Why
+
+Writing changelogs is one of those tasks that everyone agrees is important but nobody wants to do. GitHub has built-in auto-generated release notes, but they're just a list of PR titles, which is barely better than `git log`. This action reads your merged PRs, sends them to an AI model, and gets back a properly categorized changelog with human-readable descriptions. It groups changes into Features, Bug Fixes, Breaking Changes, and whatever other categories you define. You can have it update the GitHub Release body automatically, so publishing a release is all it takes to get a proper changelog.
 
 ## Usage
 
@@ -62,7 +68,7 @@ jobs:
 | ---------------- | -------- | ------------------------------------------- | ------------------------------------------------- |
 | `provider`       | No       | `openai`                                    | AI provider: `openai` or `anthropic`              |
 | `model`          | No       | `gpt-4o-mini`                               | Model to use (e.g. `gpt-4o`, `claude-3-haiku`)    |
-| `api-key`        | Yes      | —                                           | API key for the AI provider                       |
+| `api-key`        | Yes      |                                             | API key for the AI provider                       |
 | `categories`     | No       | `Features,Bug Fixes,Breaking Changes,Other` | Comma-separated changelog categories              |
 | `update-release` | No       | `true`                                      | Update the GitHub Release body with the changelog |
 
@@ -74,18 +80,18 @@ jobs:
 
 ## How It Works
 
-1. **Trigger**: Runs when a new GitHub Release is published.
-2. **Fetch PRs**: Uses the GitHub API to list merged PRs since the previous release.
-3. **Summarize**: Builds a text summary of PR numbers, titles, authors, and labels.
-4. **Generate**: Sends the summary to OpenAI or Anthropic with a changelog system prompt.
-5. **Update**: Optionally writes the generated changelog to the release body.
+1. Runs when a new GitHub Release is published.
+2. Uses the GitHub API to list merged PRs since the previous release.
+3. Builds a text summary of PR numbers, titles, authors, and labels.
+4. Sends the summary to OpenAI or Anthropic with a changelog system prompt.
+5. Optionally writes the generated changelog to the release body.
 
 ## Supported Providers
 
-| Provider      | Models (examples)                   | API Key Secret      |
-| ------------- | ----------------------------------- | ------------------- |
+| Provider      | Models (examples)                    | API Key Secret      |
+| ------------- | ------------------------------------ | ------------------- |
 | **OpenAI**    | `gpt-4o-mini`, `gpt-4o`, `gpt-4`    | `OPENAI_API_KEY`    |
-| **Anthropic** | `claude-3-haiku`, `claude-3-sonnet` | `ANTHROPIC_API_KEY` |
+| **Anthropic** | `claude-3-haiku`, `claude-3-sonnet`  | `ANTHROPIC_API_KEY` |
 
 ## Example Output
 
@@ -109,9 +115,10 @@ jobs:
 
 Part of the AI DevOps suite:
 
-- **[ai-commit-msg](https://github.com/ofershap/ai-commit-msg)** — AI-generated conventional commit messages
-- **[ai-pr-reviewer](https://github.com/ofershap/ai-pr-reviewer)** — AI-powered PR review comments
-- **[ai-changelog](https://github.com/ofershap/ai-changelog)** — AI-generated changelogs from merged PRs
+- **[ai-commit-msg](https://github.com/ofershap/ai-commit-msg)**: AI-generated conventional commit messages
+- **[ai-pr-reviewer](https://github.com/ofershap/ai-pr-reviewer)**: AI-powered PR review comments
+- **[ai-label-pr](https://github.com/ofershap/ai-label-pr)**: Auto-label PRs by size and type
+- **ai-changelog**: AI-generated changelogs from merged PRs (this project)
 
 ## Development
 
@@ -122,6 +129,13 @@ npm run build
 npm test
 npm run lint
 ```
+
+## Author
+
+**Ofer Shapira**
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-ofershap-blue?logo=linkedin)](https://linkedin.com/in/ofershap)
+[![GitHub](https://img.shields.io/badge/GitHub-ofershap-black?logo=github)](https://github.com/ofershap)
 
 ## License
 
