@@ -88,10 +88,10 @@ jobs:
 
 ## Supported Providers
 
-| Provider      | Models (examples)                    | API Key Secret      |
-| ------------- | ------------------------------------ | ------------------- |
+| Provider      | Models (examples)                   | API Key Secret      |
+| ------------- | ----------------------------------- | ------------------- |
 | **OpenAI**    | `gpt-4o-mini`, `gpt-4o`, `gpt-4`    | `OPENAI_API_KEY`    |
-| **Anthropic** | `claude-3-haiku`, `claude-3-sonnet`  | `ANTHROPIC_API_KEY` |
+| **Anthropic** | `claude-3-haiku`, `claude-3-sonnet` | `ANTHROPIC_API_KEY` |
 
 ## Example Output
 
@@ -136,8 +136,7 @@ npm run lint
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-ofershap-blue?logo=linkedin)](https://linkedin.com/in/ofershap)
 [![GitHub](https://img.shields.io/badge/GitHub-ofershap-black?logo=github)](https://github.com/ofershap)
-
-<a href="https://gitshow.dev/ofershap"><img src="https://gitshow.dev/api/og/ofershap" alt="Ofer Shapira developer portfolio - MCP servers, GitHub Actions, TypeScript libraries" width="400"></a>
+[![Portfolio](https://img.shields.io/badge/Portfolio-gitshow.dev-orange)](https://gitshow.dev/ofershap)
 
 ## License
 
